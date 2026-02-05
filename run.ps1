@@ -2,4 +2,4 @@
 .\venv\Scripts\activate
 
 # Run main
-python main.py
+python ./src/main.py
