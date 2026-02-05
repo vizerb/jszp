@@ -17,6 +17,9 @@ class JszpApp(tk.Tk):
         self.title("Simple jszp")
         self.geometry("640x500")
 
+        # Bind enter to sending request
+        self.bind('<Return>', self.handle_request)
+
         self.request_section = RequestSection(self, handle_request=self.handle_request)
         self.request_section.pack(side="top", fill="both", expand=True)
 
@@ -28,7 +31,7 @@ class JszpApp(tk.Tk):
         self.session.cookies.update(jszp.cookies)
         self.session.headers.update(jszp.headers)
     
-    def handle_request(self):
+    def handle_request(self, event):
         plate = self.request_section.get_plate()
         self.request_section.toggle_button()
         
@@ -38,10 +41,12 @@ class JszpApp(tk.Tk):
             self.countdown()
         except RequestError as e:
             self.response_section.clear_values()
+            self.request_section.toggle_button()
             print(e)
                 
     def make_request(self, plate):
         files,URL = [jszp.files, jszp.URL]
+        result = {}
 
         files['hidden-rendszam'] = (None, plate)
         files['_sys_MapperID'] = (None, '7245949645153563')    
@@ -73,10 +78,13 @@ class JszpApp(tk.Tk):
 
                 result2 = parsing.parseMuszakiAdatok(jsonResponse)
                 result = {**result2, **result1}
-
+                
                 return result
         else:
             raise RequestError(response_1.json(), response_1.status_code)
+
+        return result
+
     
     def countdown(self, n=0):
         app.after(0, lambda: self.request_section.set_countdown_value(n))

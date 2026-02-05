@@ -6,7 +6,7 @@ class RequestSection(tk.Frame):
         self.config(bg="lightblue")
         
         self.container = tk.Frame(self)
-        self.container.config(bg='#bdbdbb')
+        self.container.config(bg="lightblue")
         
         self.plate_entry = tk.Entry(self.container)
         self.plate_entry.insert(0, "Rendszam")

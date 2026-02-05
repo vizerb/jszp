@@ -1,25 +1,15 @@
-## Run locally
+## Program használata
 
-1. Create python virtual environment and activate it:
-   
-   ```
-   python -m venv ./venv
-   .\venv\Scripts\activate
-   ```
+Nyiss egy powershell terminált és futtasd az alábbi scripteket
 
-3. Install packages:
+1. Setup powershell script (egyszer kell csak futtatni):
 
-   ```
-   pip install -r requirements.txt
-   ```
+```
+.\setup.ps1
+```
 
-4. Install playwright's dependencies:
+2. Futtató powershell script:
 
-   ```
-   playwright install
-   ```
-
-5. Start script:
-   ```
-   python main.py
-   ```
+```
+.\run.ps1
+```
