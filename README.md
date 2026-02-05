@@ -8,7 +8,7 @@ Nyiss egy powershell terminált és futtasd az alábbi scripteket
 .\setup.ps1
 ```
 
-2. Futtató powershell script:
+2. Indító powershell script:
 
 ```
 .\run.ps1
