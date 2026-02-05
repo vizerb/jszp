@@ -37,6 +37,11 @@ def parseOkmanyAdatok(jsonResponse):
 
 def parseMuszakiAdatok(jsonResponse):
     result = {}
+
+    # Ha nem tartoznak műszaki adatok a járműhöz, üres dict-et ad vissza
+    if not ('layout_list-MuszakiAllapot' in jsonResponse['CtrlValue'].keys()):
+        return result
+
     jsonResponse = jsonResponse['CtrlValue']['layout_list-MuszakiAllapot']['VALUE'][0]
 
     try:
