@@ -1,18 +1,26 @@
 ## Egyszerű jszp lekérdező
 - Csak a releváns adatokat jeleníti meg
 - Visszaszámol 30mp-et a kérések között
+
 ### Program használata
 
-Nyiss egy powershell terminált és futtasd az alábbi scripteket
+Cloneold, vagy töltsd le a repositoryt, majd a gyökérkönyvtárban nyiss egy powershell terminált és futtasd az alábbiakat
+1. Python telepítése:
+```
+winget install -e --id Python.Python.3.11
+```
 
-1. Setup powershell script (egyszer kell csak futtatni):
+2. Scriptek futtatásához engedély:
+```
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
+```
 
+3. Futtasd a setup scriptet (egyszer kell csak futtatni):
 ```
 .\setup.ps1
 ```
 
-2. Indító powershell script:
-
+4. Futtasd az indító powershell scriptet:
 ```
 .\run.ps1
 ```
