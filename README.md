@@ -12,7 +12,7 @@ Cloneold, vagy töltsd le a repositoryt, majd a gyökérkönyvtárban nyiss egy 
   
   2. Scriptek futtatásához engedély:
   ```
-  Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
+  Get-ChildItem -Path "./" -Recurse | Unblock-File
   ```
   
   3. Függőségeket letöltő setup script:
