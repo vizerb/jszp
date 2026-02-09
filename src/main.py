@@ -31,7 +31,7 @@ class JszpApp(tk.Tk):
         self.session.cookies.update(jszp.cookies)
         self.session.headers.update(jszp.headers)
     
-    def handle_request(self, event):
+    def handle_request(self, event=None):
         plate = self.request_section.get_plate()
         self.request_section.toggle_button()
         
