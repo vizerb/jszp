@@ -4,7 +4,7 @@
 
 ### Program használata
 Cloneold, vagy töltsd le a repositoryt, majd a gyökérkönyvtárban nyiss egy powershell terminált és futtasd az alábbiakat
-- Előkészítés:
+- Előkészítés (csak egyszer kell):
   1. Python telepítése:
   ```
   winget install -e --id Python.Python.3.11
