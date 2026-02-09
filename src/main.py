@@ -41,29 +41,33 @@ class JszpApp(tk.Tk):
             self.countdown()
         except RequestError as e:
             self.response_section.clear_values()
-            self.request_section.toggle_button()
+            #self.request_section.toggle_button()
+            self.countdown()
             print(e)
                 
     def make_request(self, plate):
         files,URL = [jszp.files, jszp.URL]
         result = {}
-
+        request_timeout = 60
         files['hidden-rendszam'] = (None, plate)
         files['_sys_MapperID'] = (None, '7245949645153563')    
         
-        response_1 = self.session.post(URL, files=files)
-
+        try:
+            response_1 = self.session.post(URL, files=files, timeout=request_timeout)
+        except requests.exceptions.Timeout:
+            raise RequestError("Nem érkezett időben válasz", 500)
+        
         if response_1.status_code == 200:
             files['_sys_MapperID'] = (None, '7404720745143572')
-            response_2 = self.session.post(URL, files=files)
+            try:
+                response_2 = self.session.post(URL, files=files, timeout=request_timeout)
+            except requests.exceptions.Timeout:
+                raise RequestError("Nem érkezett időben válasz", 500)
             
             if response_2.status_code == 200:
                 jsonResponse = response_2.json()
                 
-                #try:
                 result1 = parsing.parseOkmanyAdatok(jsonResponse)
-                # except:
-                #     raise RequestError("Hiba a válasz feldolgozásában", 500)
                 
                 if plate.capitalize() != result1['rendszam'].capitalize():
                     raise RequestError("Nem létezik ilyen rendszám", 404)
@@ -71,7 +75,10 @@ class JszpApp(tk.Tk):
             # muszaki adatok
             files['_sys_MapperID'] = (None, '7393854745198637')
 
-            response_3 = self.session.post(URL, files=files)
+            try:
+                response_3 = self.session.post(URL, files=files, timeout=request_timeout)
+            except requests.exceptions.Timeout:
+                raise RequestError("Nem érkezett időben válasz", 500)
             
             if response_3.status_code == 200:
                 jsonResponse = response_3.json()
