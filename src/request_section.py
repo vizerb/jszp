@@ -19,7 +19,7 @@ class RequestSection(tk.Frame):
         
         self.container.pack(expand=True)
         
-        self.countdown_label = tk.Label(self, text="00:00")
+        self.countdown_label = tk.Label(self, text="0")
         self.countdown_label.pack(anchor="s")
     
     def get_plate(self):
