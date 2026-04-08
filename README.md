@@ -3,7 +3,7 @@
 - Visszaszámol 30mp-et a kérések között
 
 ### Program használata
-Cloneold, vagy töltsd le a repositoryt, majd a gyökérkönyvtárban nyiss egy powershell terminált és futtasd az alábbiakat
+Cloneold, vagy töltsd le a repositoryt, majd a projekt gyökérkönyvtárában nyiss egy powershell terminált és futtasd az alábbiakat
 - Előkészítés (csak egyszer kell):
   1. Python telepítése:
   ```
