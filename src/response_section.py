@@ -24,6 +24,7 @@ class ResponseSection(tk.Frame):
         "kategoria": "Kategória",
         "tengelyszam": "Tengelyszám",
         "ulohelyszam": "Ülőhelyszám",
+        "egyuttestomeg": "Együttes tömeg",
     }
 
     def clear_values(self):

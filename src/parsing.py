@@ -20,7 +20,7 @@ def parseOkmanyAdatok(jsonResponse):
 
         muszakiAdatok = ctrlValue['layout_list-JarmuOkmany-MuszakiAdatok']['VALUE'][0]
         result = condAdd(muszakiAdatok, result, "text-UlohelySzam", "ulohelyszam")
-
+        result = condAdd(muszakiAdatok, result, "text-EgyuttesTomeg", "egyuttestomeg")
 
     # Example value: Az adatszolgáltatás időpontja: 2025.12.23. 13:24:20
     timeYMD = ctrlValue['text-adatigenyles_datum']['VALUE'].split(" ")[-2].split(".")[:-1]
@@ -60,8 +60,10 @@ def parseMuszakiAdatok(jsonResponse):
         muszakiAdatok = jsonResponse['layout_list-MuszakiAllapot-MuszakiAdatok'][0]
         result['tengelyszam'] = muszakiAdatok['text-MuszakiAllapot-Tengelyszam']
         result['ulohelyszam'] = muszakiAdatok["text-MuszakiAllapot-Ulohelyszam"]
+        result['egyuttestomeg'] = muszakiAdatok["text-MuszakiAllapot-EgyuttesTomeg"]
     except:
         result['tengelyszam'] = "Nincs adat"
         result['ulohelyszam'] = "Nincs adat"
+        result['egyuttestomeg'] = "Nincs adat"
     
     return result
