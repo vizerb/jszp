@@ -2,20 +2,33 @@
 - Csak a releváns adatokat jeleníti meg
 - Visszaszámol 30mp-et a kérések között
 
+
 ### Program használata
-Cloneold, vagy töltsd le a repositoryt, majd a projekt gyökérkönyvtárában nyiss egy powershell terminált és futtasd az alábbiakat
+**Használat előtt legalább egyszer be kell lépni a rendes jszp felületbe és el kell fogadni a felhasználói feltételeket.**
+
+Nyiss egy powershell terminált és futtasd az alábbiakat
+
 - Előkészítés (csak egyszer kell):
-  1. Python telepítése:
+  1. Python és Git telepítése:
   ```
-  winget install -e --id Python.Python.3.11
+  winget install -e --id Git.Git Python.Python.3.11
+  ```
+
+  2. Forrás letöltése:
+  ```
+  git clone https://github.com/vizerb/jszp.git
+  ```
+  3. Gyökérkönyvtárba navigálás:
+  ```
+  cd jszp 
   ```
   
-  2. Scriptek futtatásához engedély:
+  4. Scriptek futtatásához engedély:
   ```
-  Get-ChildItem -Path "./" -Recurse | Unblock-File
+  Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
   ```
   
-  3. Függőségeket letöltő setup script:
+  5. Függőségeket letöltő setup script:
   ```
   .\setup.ps1
   ```
