@@ -41,8 +41,11 @@ class JszpApp(tk.Tk):
             self.countdown()
         except RequestError as e:
             self.response_section.clear_values()
-            #self.request_section.toggle_button()
             self.countdown()
+            print(e)
+        except Exception as e:
+            self.response_section.clear_values()
+            self.request_section.toggle_button()
             print(e)
                 
     def make_request(self, plate):
